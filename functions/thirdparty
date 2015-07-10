@@ -18,6 +18,7 @@ echo '2. Google Talk Plugin?'
 echo '3. Nautilus Dropbox?'
 echo '4. Sublime Text?'
 echo '5. RStudio?'
+echo '6. TexLive?'
 echo 'r. Return'
 echo ''
 show_info 'Enter your choice:' && read REPLY
@@ -102,6 +103,31 @@ case $REPLY in
     sudo dnf --nogpgcheck install -y rstudio-*.rpm
     # Cleanup and finish
     rm rstudio-*.rpm
+    cd
+    show_success 'Done.'
+    thirdparty
+    ;;
+# TexLive
+6)
+    echo 'Downloading TexLive...'
+    cd $HOME/Downloads
+    # Download perl install file
+    wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+    cd 
+    #Unpacke the tar.gz file
+    tar xf install-tl-unx.tar.gz && mv install-tl-*/ install-tl
+    cd install-tl
+    # Install package(s)
+    echo 'Installing TexLive...'
+    show_info 'Requires root privileges:'
+    sudo ./install-tl
+    #defined path in bashrc
+    echo 'PATH=/usr/local/texlive/2015/bin/x86_64-linux/:$PATH; export PATH ' >> ~/.bashrc
+    echo 'MANPATH=/usr/local/texlive/2015/texmf-dist/doc/man:$MANPATH; export MANPATH' >> ~/.bashrc
+    echo 'INFOPATH=/usr/local/texlive/2015/texmf-dist/doc/info:$INFOPATH; export INFOPATH' >> ~/.bashrc
+    # Cleanup and finish
+    cd ..
+    rm -R install-tl*
     cd
     show_success 'Done.'
     thirdparty
