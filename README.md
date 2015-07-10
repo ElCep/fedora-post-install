@@ -2,14 +2,24 @@ Fedora Post Install Script
 ==========================
 
 Original Author: Sam Hewitt
+Modified : Etienne DELAY
 
 License: GPLv3
 
 Original source can be found [here](https://github.com/snwh/fedora-post-install).
 
-You can get the latest version from the git repository:
+##scientific stuff
 
-    git clone https://github.com/snwh/fedora-post-install.git
+I have modified the original script for add some geographical and scientific programs : 
+
+ * [gdal](http://www.gdal.org/)
+ * [geos](http://trac.osgeo.org/geos/)
+ * [proj.4](https://trac.osgeo.org/proj/)
+ * [grass](http://grass.osgeo.org/)
+ * [Qgis](http://www.qgis.org/fr/site/)
+ * [R](http://www.r-project.org/)
+ * [Rstudio](https://www.rstudio.com/)
+ * fresh [TeXLive](https://www.tug.org/texlive/) install
 
 ##Usage:
 
