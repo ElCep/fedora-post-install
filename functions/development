@@ -5,7 +5,6 @@
 dir="$(dirname "$0")"
 
 DEVTOOLS="$dir/data/development.list"
-RTOOLS="$dir/data/install_my_packages.R"
 
 # INSTALL DEVELOPMENT TOOLS
 function development {
