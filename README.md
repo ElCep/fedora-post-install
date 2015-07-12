@@ -21,6 +21,9 @@ I have modified the original script for add some geographical and scientific pro
  * [Rstudio](https://www.rstudio.com/)
  * fresh [TeXLive](https://www.tug.org/texlive/) install
 
+ By the way in the dev-tool section (4) it's now possible to install R packages for geographers ("rgdal","rgeos","proj4","maptools","plyr","ggplot2")
+
+
 ##Usage:
 
 Download and run from the containing folder:
