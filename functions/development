@@ -5,6 +5,7 @@
 dir="$(dirname "$0")"
 
 DEVTOOLS="$dir/data/development.list"
+RTOOLS="$dir/data/install_my_packages.R"
 
 # INSTALL DEVELOPMENT TOOLS
 function development {
@@ -12,9 +13,10 @@ echo ''
 show_info 'What would you like to do?'
 echo ''
 echo '1. Install development tools?'
-echo '2. Install GNOME development tools?'
-echo '3. Install JHBuild dependencies?'
-echo '4. Install Android development dependencies?'
+echo '2. Install R packages'
+echo '3. Install GNOME development tools?'
+echo '4. Install JHBuild dependencies?'
+echo '5. Install Android development dependencies?'
 echo 'r. Return'
 echo ''
 show_info 'Enter your choice:' && read REPLY
@@ -52,8 +54,17 @@ case $REPLY in
         ;;
     esac
     ;;
-# Install GNOME developer tools
+# Install R packages
 2)
+    # Install packages
+    echo 'Installing R packages...'
+    show_info 'Requires root privileges:'
+    sudo Rscript $dir/data/install_my_packages.R
+    show_success 'Done.'
+    development
+    ;;
+# Install GNOME developer tools
+3)
     # Install packages
     echo 'Installing software for GNOME development...'
     show_info 'Requires root privileges:'
@@ -62,7 +73,7 @@ case $REPLY in
     development
     ;;
 # Install potential JHBuild dependencies
-3)
+4)
     # Install packages
     echo 'Installing potential JHBuild dependencies...'
     show_info 'Requires root privileges:'
@@ -71,7 +82,7 @@ case $REPLY in
     development
     ;;
 # Install Android development dependencies
-4)
+5)
     # Install packages
     echo 'Installing Android development dependencies...'
     show_info 'Requires root privileges:'
