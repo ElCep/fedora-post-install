@@ -17,3 +17,5 @@ qgis-python
 qgis-grass
 qgis-server
 corebird
+pandoc
+pandoc-citeproc
