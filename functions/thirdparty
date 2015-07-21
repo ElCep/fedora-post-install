@@ -144,7 +144,7 @@ case $REPLY in
     show_info 'Requires root privileges:'
     sudo cp -R netlogo-5.2.0 /opt/
     #defined path in bashrc
-    echo 'alias netlogo = 'sh /opt/netlogo-5.2.0/netlogo.sh &'' >> ~/.bashrc
+    echo "alias netlogo='sh /opt/netlogo-5.2.0/netlogo.sh'" >> ~/.bashrc
     
     # Cleanup and finish
     rm -R netlogo*
