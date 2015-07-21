@@ -19,6 +19,7 @@ echo '3. Nautilus Dropbox?'
 echo '4. Sublime Text?'
 echo '5. RStudio?'
 echo '6. TexLive?'
+echo '7. Netlogo?'
 echo 'r. Return'
 echo ''
 show_info 'Enter your choice:' && read REPLY
@@ -113,7 +114,6 @@ case $REPLY in
     cd $HOME/Downloads
     # Download perl install file
     wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-    cd 
     #Unpacke the tar.gz file
     tar xf install-tl-unx.tar.gz && mv install-tl-*/ install-tl
     cd install-tl
@@ -128,6 +128,26 @@ case $REPLY in
     # Cleanup and finish
     cd ..
     rm -R install-tl*
+    cd
+    show_success 'Done.'
+    thirdparty
+    ;;
+# TexLive
+7)
+    echo 'Downloading Netlogo...'
+    cd $HOME/Downloads
+    # Download perl install file
+    wget https://ccl.northwestern.edu/netlogo/5.2.0/netlogo-5.2.0.tar.gz
+    #Unpacke the tar.gz file
+    tar -xf netlogo-5.2.0.tar.gz
+    echo 'Installing Netlogo...'
+    show_info 'Requires root privileges:'
+    sudo cp -R netlogo-5.2.0 /opt/
+    #defined path in bashrc
+    echo 'alias netlogo = 'sh /opt/netlogo-5.2.0/netlogo.sh &'' >> ~/.bashrc
+    
+    # Cleanup and finish
+    rm -R netlogo*
     cd
     show_success 'Done.'
     thirdparty
