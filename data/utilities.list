@@ -12,3 +12,5 @@ easy-rsa
 srm
 symlinks
 wget
+p7zip 
+p7zip-plugins
