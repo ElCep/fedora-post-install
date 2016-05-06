@@ -14,3 +14,5 @@ symlinks
 wget
 p7zip 
 p7zip-plugins
+gvfs-mtp
+libmtp

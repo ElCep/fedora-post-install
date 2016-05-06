@@ -20,6 +20,7 @@ echo '4. Sublime Text?'
 echo '5. RStudio?'
 echo '6. TexLive?'
 echo '7. Netlogo?'
+echo '8. Gama?'
 echo 'r. Return'
 echo ''
 show_info 'Enter your choice:' && read REPLY
@@ -27,7 +28,7 @@ case $REPLY in
 # Google Chrome
 1) 
     echo 'Downloading Google Chrome...'
-    cd $HOME/Downloads
+    cd $HOME/Téléchargements
     # Download RPM file that matches system architecture
     if [ $(uname -i) = 'i386' ]; then
         curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_i386.rpm
@@ -47,7 +48,7 @@ case $REPLY in
 # Google Talk Plugin
 2)
     echo 'Downloading Google Talk Plugin...'
-    cd $HOME/Downloads
+    cd $HOME/Téléchargements
     # Download RPM file that matches system architecture
     if [ $(uname -i) = 'i386' ]; then
         curl -O https://dl.google.com/linux/direct/google-talkplugin_current_i386.rpm
@@ -67,7 +68,7 @@ case $REPLY in
 # Dropbox
 3)
     echo 'Downloading Dropbox...'
-    cd $HOME/Downloads
+    cd $HOME/Téléchargements
     # Download RPM file that matches system architecture
     if [ $(uname -i) = 'i386' ]; then
         curl -O https://linux.dropbox.com/packages/fedora/nautilus-dropbox-1.6.0-1.fedora.i386.rpm
@@ -91,7 +92,7 @@ case $REPLY in
 # RStudio
 5)
     echo 'Downloading RStudio...'
-    cd $HOME/Downloads
+    cd $HOME/Téléchargements
     # Download RPM file that matches system architecture
     if [ $(uname -i) = 'i386' ]; then
         curl -O https://download1.rstudio.org/rstudio-0.99.465-i686.rpm
@@ -111,7 +112,7 @@ case $REPLY in
 # TexLive
 6)
     echo 'Downloading TexLive...'
-    cd $HOME/Downloads
+    cd $HOME/Téléchargements
     # Download perl install file
     wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
     #Unpacke the tar.gz file
@@ -132,17 +133,49 @@ case $REPLY in
     show_success 'Done.'
     thirdparty
     ;;
-# TexLive
+# Netlogo
 7)
     echo 'Downloading Netlogo...'
-    cd $HOME/Downloads
+    cd $HOME/Téléchargements
     # Download perl install file
-    wget https://ccl.northwestern.edu/netlogo/5.2.0/netlogo-5.2.0.tar.gz
+    wget --no-check-certificate https://ccl.northwestern.edu/netlogo/5.3.1/NetLogo-5.3.1-64.tgz
     #Unpacke the tar.gz file
-    tar -xf netlogo-5.2.0.tar.gz
+    tar -xf NetLogo-5.3.1-64.tgz
     echo 'Installing Netlogo...'
     show_info 'Requires root privileges:'
-    sudo cp -R netlogo-5.2.0 /opt/
+    sudo cp -R netlogo-5.3.1-64 /opt/
+    # Create symbolic link
+	echo 'Creating symbolic link...'
+	show_info 'Requires root privileges:'
+	sudo ln -sf /opt/netlogo-5.3.1-64/NetLogo /usr/bin/netlogo
+	sudo chmod +x /usr/bin/netlogo
+	show_success 'Done.'
+    #defined path in bashrc
+    echo "alias netlogo='sh /opt/netlogo-5.2.0/netlogo.sh'" >> ~/.bashrc
+    
+    # Cleanup and finish
+    rm -R netlogo*
+    cd
+    show_success 'Done.'
+    thirdparty
+    ;;
+# Gama
+7)
+    echo 'Downloading Gama...'
+    cd $HOME/Téléchargements
+    # Download perl install file
+    wget http://51.255.46.42/releases/gama1_7_b1_linux64.zip
+    #Unpacke the tar.gz file
+    unzip gama1_7_b1_linux64.zip
+    echo 'Installing Gama...'
+    show_info 'Requires root privileges:'
+    sudo cp -R gama1_7_linux64 /opt/
+    # Create symbolic link
+	echo 'Creating symbolic link...'
+	show_info 'Requires root privileges:'
+	sudo ln -sf /opt/gama1_7_linux64/Gama /usr/bin/gama
+	sudo chmod +x /usr/bin/gama
+	show_success 'Done.'
     #defined path in bashrc
     echo "alias netlogo='sh /opt/netlogo-5.2.0/netlogo.sh'" >> ~/.bashrc
     
