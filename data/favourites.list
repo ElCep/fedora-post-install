@@ -21,3 +21,6 @@ pandoc
 pandoc-citeproc
 beesu
 baobab
+conky
+conky-manager
+xfce4-hardware-monitor-plugin
