@@ -26,7 +26,7 @@ echo ''
 show_info 'Enter your choice:' && read REPLY
 case $REPLY in
 # Google Chrome
-1) 
+1)
     echo 'Downloading Google Chrome...'
     cd $HOME/Téléchargements
     # Download RPM file that matches system architecture
@@ -123,13 +123,13 @@ case $REPLY in
     show_info 'Requires root privileges:'
     sudo ./install-tl
     #defined path in bashrc
-    echo 'PATH=/usr/local/texlive/2015/bin/x86_64-linux/:$PATH; export PATH ' >> ~/.bashrc
-    echo 'MANPATH=/usr/local/texlive/2015/texmf-dist/doc/man:$MANPATH; export MANPATH' >> ~/.bashrc
-    echo 'INFOPATH=/usr/local/texlive/2015/texmf-dist/doc/info:$INFOPATH; export INFOPATH' >> ~/.bashrc
+    echo 'PATH=/usr/local/texlive/2016/bin/x86_64-linux/:$PATH; export PATH ' >> ~/.bashrc
+    echo 'MANPATH=/usr/local/texlive/2016/texmf-dist/doc/man:$MANPATH; export MANPATH' >> ~/.bashrc
+    echo 'INFOPATH=/usr/local/texlive/2016/texmf-dist/doc/info:$INFOPATH; export INFOPATH' >> ~/.bashrc
     # Cleanup and finish
     cd ..
     rm -R install-tl*
-    cd
+    cd ~
     show_success 'Done.'
     thirdparty
     ;;
@@ -138,7 +138,7 @@ case $REPLY in
     echo 'Downloading Netlogo...'
     cd $HOME/Téléchargements
     # Download perl install file
-    wget --no-check-certificate https://ccl.northwestern.edu/netlogo/5.3.1/NetLogo-5.3.1-64.tgz
+    wget --no-check-certificate https://ccl.northwestern.edu/netlogo/6.0/NetLogo-6.0-64.tgz
     #Unpacke the tar.gz file
     tar -xf NetLogo-5.3.1-64.tgz
     echo 'Installing Netlogo...'
@@ -152,7 +152,7 @@ case $REPLY in
 	show_success 'Done.'
     #defined path in bashrc
     echo "alias netlogo='sh /opt/netlogo-5.2.0/netlogo.sh'" >> ~/.bashrc
-    
+
     # Cleanup and finish
     rm -R netlogo*
     cd
@@ -169,27 +169,27 @@ case $REPLY in
     unzip gama1_7_b1_linux64.zip
     echo 'Installing Gama...'
     show_info 'Requires root privileges:'
-    sudo cp -R gama1_7_linux64 /opt/
+    sudo cp -R gama1_7_linux64 ~/app/
     # Create symbolic link
 	echo 'Creating symbolic link...'
 	show_info 'Requires root privileges:'
-	sudo ln -sf /opt/gama1_7_linux64/Gama /usr/bin/gama
+	sudo ln -sf ~/app/gama1_7_linux64/Gama /usr/bin/gama
 	sudo chmod +x /usr/bin/gama
 	show_success 'Done.'
     #defined path in bashrc
-    echo "alias netlogo='sh /opt/netlogo-5.2.0/netlogo.sh'" >> ~/.bashrc
-    
+    #echo "alias gama='sh ~/app/netlogo-5.2.0/netlogo.sh'" >> ~/.bashrc
+
     # Cleanup and finish
-    rm -R netlogo*
+    rm -R gama1*
     cd
     show_success 'Done.'
     thirdparty
     ;;
 # Return
-[Rr]*) 
+[Rr]*)
     clear && main;;
 # Invalid choice
-* ) 
+* )
     clear && echo 'Not an option, try again.' && thirdparty;;
 esac
 }
