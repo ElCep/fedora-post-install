@@ -184,18 +184,18 @@ thirdparty
     # Download perl install file
     wget --no-check-certificate https://ccl.northwestern.edu/netlogo/6.0/NetLogo-6.0-64.tgz
     #Unpacke the tar.gz file
-    tar -xf NetLogo-5.3.1-64.tgz
+    tar -xf NetLogo-6.0-64.tgz
     echo 'Installing Netlogo...'
     show_info 'Requires root privileges:'
-    sudo cp -R netlogo-5.3.1-64 /opt/
+    sudo cp -R NetLogo-6.0-64 /opt/
     # Create symbolic link
-	echo 'Creating symbolic link...'
-	show_info 'Requires root privileges:'
-	sudo ln -sf /opt/netlogo-5.3.1-64/NetLogo /usr/bin/netlogo
-	sudo chmod +x /usr/bin/netlogo
-	show_success 'Done.'
+	  echo 'Creating symbolic link...'
+    show_info 'Requires root privileges:'
+    sudo ln -sf /opt/NetLogo-6.0-64/NetLogo\ 6.0/NetLogo /usr/bin/netlogo
+    sudo chmod +x /usr/bin/netlogo
+    show_success 'Done.'
     #defined path in bashrc
-    echo "alias netlogo='sh /opt/netlogo-5.2.0/netlogo.sh'" >> ~/.bashrc
+    echo "alias netlogo='/opt/NetLogo-6.0-64/NetLogo\ 6.0/NetLogo'" >> ~/.bashrc
 
     # Cleanup and finish
     rm -R netlogo*
