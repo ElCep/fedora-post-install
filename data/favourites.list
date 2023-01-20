@@ -1,9 +1,5 @@
-nautilus-terminal
-pyrenamer
-sparkleshare
 transmission
 thunderbird
-texmaker
 R
 gdal
 gdal-devel
@@ -13,13 +9,11 @@ proj
 proj-devel
 grass
 qgis
-qgis-python
+python3-qgis
 qgis-grass
 qgis-server
-corebird
 pandoc
-pandoc-citeproc
 beesu
 baobab
-keepassx
+keepassxc
 nano
