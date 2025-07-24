@@ -9,3 +9,7 @@ icon-naming-utils
 nodejs
 python-devel
 cmake
+udunits2
+udunits2-devel
+abseil-cpp
+abseil-cpp-devel
